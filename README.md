@@ -64,6 +64,7 @@ Frontend:
 5. How to Run Tests:
 
 Backend:
+<<<<<<< HEAD
 cd backend              # Correct location
 npm install             # Install dependencies
 npm test                # Run backend tests (Jest + Supertest)
@@ -72,6 +73,21 @@ npm test                # Run backend tests (Jest + Supertest)
 
 Frontend:
 cd frontend             # Correct location
+=======
+
+cd backend              # Correct location
+
+npm install             # Install dependencies
+
+npm test                # Run backend tests (Jest + Supertest)
+
+Tests run directly against the Express app without needing the server started manually.
+
+Frontend:
+
+cd frontend             # Correct location
+
+>>>>>>> 3c85c568f1ae413617624df50de92a2d2bccd77b
 npx playwright install  # Install dependencies
 
 Run Playwright tests:
@@ -87,4 +103,8 @@ npx playwright show-report
 - UI selectors: Frontend tests rely on data-testid attributes.
 - Browser coverage: Currently limited to Chromium, extendable.
 - Focus: Functional correctness, excluding performance or security testing.
+<<<<<<< HEAD
 - API contract: Changes require corresponding test updates.
+=======
+- API contract: Changes require corresponding test updates.
+>>>>>>> 3c85c568f1ae413617624df50de92a2d2bccd77b
