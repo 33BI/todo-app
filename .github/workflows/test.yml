@@ -38,9 +38,6 @@ jobs:
     - name: Run frontend Playwright tests
       run: |
         cd frontend
-        # Only update snapshots if explicitly needed, ideally not on every CI run
-        # You can remove this line to avoid overwriting snapshots unintentionally
-        # npx playwright test --update-snapshots
         npx playwright test
 
     - name: Upload Playwright report
