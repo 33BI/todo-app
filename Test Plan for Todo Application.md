@@ -86,6 +86,8 @@ npx playwright install  # Install dependencies
 
 Run Playwright tests:
 
+npx playwright test --update-snapshots
+
 npx playwright test
 
 Optional: View test report:
