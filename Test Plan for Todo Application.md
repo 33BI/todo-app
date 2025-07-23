@@ -63,6 +63,8 @@ Frontend:
 
 5. How to Run Tests:
 
+Open Terminal - Nr.1 
+
 Backend:
 
 cd backend              # Correct location
@@ -74,6 +76,9 @@ npm test                # Run backend tests (Jest + Supertest)
 - Tests run directly against the Express app without needing the server started manually.
 
 Frontend:
+
+Open Terminal - Nr.2
+
 
 cd frontend             # Correct location
 
