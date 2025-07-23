@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1753269109604" clover="3.2.0">
-  <project timestamp="1753269109604" name="All files">
+<coverage generated="1753270174323" clover="3.2.0">
+  <project timestamp="1753270174323" name="All files">
     <metrics statements="48" coveredstatements="46" conditionals="20" coveredconditionals="16" methods="10" coveredmethods="9" elements="78" coveredelements="71" complexity="0" loc="48" ncloc="48" packages="1" files="1" classes="1"/>
     <file name="server.js" path="C:\Users\bumerangs\todo-app\backend\server.js">
       <metrics statements="48" coveredstatements="46" conditionals="20" coveredconditionals="16" methods="10" coveredmethods="9"/>
