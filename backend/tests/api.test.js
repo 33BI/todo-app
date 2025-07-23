@@ -5,7 +5,6 @@ describe('Todo API', () => {
   let authToken;
   let testTodoId;
 
-  // Test data
   const testUser = { username: 'admin', password: 'admin' };
   const testTodo = { title: 'Test Todo' };
 
@@ -96,7 +95,6 @@ describe('Todo API', () => {
       
       expect(res.statusCode).toEqual(204);
       
-      // Verify deletion
       const getRes = await request(app)
         .get(`/todos/${testTodoId}`)
         .set('Authorization', `Bearer ${authToken}`);
