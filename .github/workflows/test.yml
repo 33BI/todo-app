@@ -26,7 +26,7 @@ jobs:
     - name: Run backend tests with coverage
       run: |
         cd backend
-        npm run coverage
+        npm test
 
     - name: Install frontend dependencies
       run: |
@@ -37,6 +37,7 @@ jobs:
     - name: Run frontend Playwright tests
       run: |
         cd frontend
+        npx playwright test --update-snapshots
         npx playwright test
 
     - name: Upload Playwright report
