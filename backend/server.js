@@ -7,21 +7,18 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// In-memory database
 let users = [{ id: '1', username: 'admin', password: 'admin' }];
 let todos = [
   { id: uuidv4(), title: 'Learn testing', completed: false },
   { id: uuidv4(), title: 'Write tests', completed: false }
 ];
 
-// Authentication middleware
 const authenticate = (req, res, next) => {
   const token = req.headers.authorization;
   if (!token) return res.status(401).json({ error: 'Unauthorized' });
   next();
 };
 
-// Routes
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
   const user = users.find(u => u.username === username && u.password === password);
@@ -64,7 +61,6 @@ app.delete('/todos/:id', authenticate, (req, res) => {
 
 const PORT = 5000;
 
-// Only start server if this file is run directly
 if (require.main === module) {
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }

@@ -56,7 +56,6 @@ test.describe('Todo Application', () => {
 
   test.describe('When logged in', () => {
     test.beforeEach(async ({ page }) => {
-      // Mock initial todos with first item unchecked
       await page.route('http://localhost:5000/login', async route => {
         await route.fulfill({
           status: 200,
@@ -70,7 +69,7 @@ test.describe('Todo Application', () => {
           status: 200,
           contentType: 'application/json',
           body: JSON.stringify([
-            { id: 1, title: 'First todo', completed: false }, // Ensure initial state is unchecked
+            { id: 1, title: 'First todo', completed: false }, 
             { id: 2, title: 'Second todo', completed: true }
           ]),
         });
@@ -81,7 +80,6 @@ test.describe('Todo Application', () => {
       await page.locator('[data-testid="login-button"]').click();
       await expect(page.locator('[data-testid="todo-header"]')).toHaveText('Todo List');
       
-      // Wait for todos to load
       await page.waitForSelector('[data-testid="todo-item"]');
     });
 
@@ -112,12 +110,10 @@ test.describe('Todo Application', () => {
 
     test('should toggle todo completion', async ({ page }) => {
       let toggleRequestCount = 0;
-      
-      // Verify initial state is unchecked
+
       const checkbox = page.locator('[data-testid="checkbox-1"]');
       await expect(checkbox).not.toBeChecked();
       
-      // Mock the toggle response
       await page.route('http://localhost:5000/todos/1', async route => {
         toggleRequestCount++;
         await route.fulfill({
@@ -127,7 +123,6 @@ test.describe('Todo Application', () => {
         });
       });
 
-      // Mock the updated todos list
       await page.route('http://localhost:5000/todos', async route => {
         await route.fulfill({
           status: 200,

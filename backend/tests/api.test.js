@@ -32,7 +32,6 @@ describe('Todo API', () => {
 
   describe('Todo Operations', () => {
     beforeAll(async () => {
-      // Get auth token before running todo tests
       const loginRes = await request(app)
         .post('/login')
         .send(testUser);
@@ -109,7 +108,7 @@ describe('Todo API', () => {
         .delete('/todos/non-existent-id')
         .set('Authorization', `Bearer ${authToken}`);
       
-      expect(res.statusCode).toEqual(204); // Updated expectation
+      expect(res.statusCode).toEqual(204);
     });
   });
 
