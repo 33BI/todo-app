@@ -64,12 +64,16 @@ Frontend:
 5. How to Run Tests:
 
 Backend:
-npm install          # Install dependencies
-npm test             # Run backend tests (Jest + Supertest)
+cd backend              # Correct location
+npm install             # Install dependencies
+npm test                # Run backend tests (Jest + Supertest)
 
 - Tests run directly against the Express app without needing the server started manually.
 
 Frontend:
+cd frontend             # Correct location
+npx playwright install  # Install dependencies
+
 Run Playwright tests:
 npx playwright test
 
