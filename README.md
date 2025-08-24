@@ -192,7 +192,3 @@ timeout: 30000
 - [Testing Best Practices](https://github.com/goldbergyoni/javascript-testing-best-practices)
 
 ---
-
-**Happy Testing! 🎉**
-
-*For questions or issues, please open a GitHub issue or contact the development team.*
