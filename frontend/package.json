@@ -1,0 +1,58 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.10.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "test:e2e": "concurrently -k -s first \"npm start\" \"npx playwright test\"",
+    "test:e2e:ci": "concurrently -k -s first \"npm run start:ci\" \"wait-on http://localhost:3000 && npx playwright test\"",
+    "start:ci": "cross-env BROWSER=none PORT=3000 react-scripts start",
+    "test:playwright": "npx playwright test",
+    "test:playwright:headed": "npx playwright test --headed",
+    "test:playwright:report": "npx playwright test && npx playwright show-report",
+    "test:ci": "playwright test --workers=2 --reporter=line,html",
+    "coverage": "nyc instrument ./src ./src-instrumented && cross-env PLAYWRIGHT_TEST_BASE_URL=http://localhost:3000 npm run test:ci && nyc report",
+    "coverage:report": "nyc report --reporter=lcov --reporter=text"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@playwright/test": "^1.54.1",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "istanbul-lib-coverage": "^3.2.2",
+    "nyc": "^17.1.0",
+    "wait-on": "^7.2.0"
+  }
+}
